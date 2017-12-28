@@ -10,6 +10,9 @@ from bs4 import BeautifulSoup
 import csv
 from datetime import datetime
 import re
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 url ="https://elcomercio.pe/peru"
 
@@ -92,6 +95,17 @@ for pg in quote_page:
     summary_box = soup.find('h2',attrs={'class':'news-summary'})
     summaries = summary_box.text.lower()
     print "SUMARIO: ",summaries
+
+    #guardando en disco
+    f = open ("bd.txt",'a')
+    #f.write('{0} {1}\n'.format(newtitles, summaries))
+    #f.write(newtitles + ',' + summaries + ',' + '\n')
+    s =str(newtitles) + ',' + str(summaries) + '\n'
+    f.write(s)
+    f.close()
+
+
+
 
 
 

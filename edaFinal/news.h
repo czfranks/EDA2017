@@ -1,7 +1,9 @@
 #ifndef NOTICIA_H
 #define NOTICIA_H
 #include "trie.h"
+#include <ctime>
 
+using namespace std;
 
 
 class Date{

@@ -6,47 +6,66 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>525</height>
+    <width>614</width>
+    <height>648</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <widget class="QSplitter" name="splitter_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Email</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_pattern"/>
-       <widget class="QPushButton" name="btn_search">
-        <property name="text">
-         <string>search</string>
-        </property>
-       </widget>
+      <widget class="QWidget" name="Search1">
+       <attribute name="title">
+        <string>Search 1</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QSplitter" name="splitter_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QSplitter" name="splitter">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Email</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="txt_pattern"/>
+           <widget class="QPushButton" name="btn_search">
+            <property name="text">
+             <string>search</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QTableWidget" name="tableWidget">
+           <column>
+            <property name="text">
+             <string>Titulo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Fecha</string>
+            </property>
+           </column>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
-      <widget class="QTableWidget" name="tableWidget">
-       <column>
-        <property name="text">
-         <string>Titulo</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Fecha</string>
-        </property>
-       </column>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Search 2</string>
+       </attribute>
       </widget>
      </widget>
     </item>
@@ -57,8 +76,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>510</width>
-     <height>22</height>
+     <width>614</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

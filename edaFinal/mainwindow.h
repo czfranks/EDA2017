@@ -24,6 +24,10 @@ private:
     void search(const QString& s);
     string clearAcent(const string& s);
 
+    double costTime(clock_t i, clock_t f){
+        return (double)(f-i)/CLOCKS_PER_SEC;
+    }
+
 private:
     Ui::MainWindow *ui;
     Trie trie;
