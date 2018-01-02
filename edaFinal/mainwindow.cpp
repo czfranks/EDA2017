@@ -95,12 +95,12 @@ void MainWindow::loadNews(){
         //if(--cont==0) break;
         F = clock();
         sum+=costTime(I,F);
-        printf("load news %d, time: %f\n", ++cont, (float)(costTime(I,F)));
+        //printf("load news %d, time: %f\n", ++cont, (float)(costTime(I,F)));
     }
     tF=clock();
-    printf("carga todas las news, time: %f\n", (float)(costTime(tI,tF)));
+    //printf("carga todas las news, time: %f\n", (float)(costTime(tI,tF)));
     sum=sum/cont;
-    cout<<"promedio de tiempo x noticia: "<<sum<<endl;
+    //cout<<"promedio de tiempo x noticia: "<<sum<<endl;
     in.close();
 }
 
@@ -112,9 +112,10 @@ void MainWindow::search(const QString& s){
     tI = clock();
     double sum=0.0;
     for(int ind=0;ind<(int)vecNews.size();++ind){
+        I = clock();
         News& news = vecNews[ind];
         occ=0;
-        I = clock();
+
         for(QString qs : words){
             string w = qs.toStdString();
             occ+=news.searchWord(w);
@@ -124,15 +125,15 @@ void MainWindow::search(const QString& s){
             Result res(comp, ind);
             setResult.insert( res );
         }
-        sum+=costTime(I,F);
         F = clock();
-        //printf("news %d, time: %f\n", ind, (float)(costTime(I,F)));
+        sum+=costTime(I,F);
+        printf("%d, %f\n", ind, (float)(costTime(I,F))); //csv
     }
 
     tF = clock();
     printf("Busqueda en todas las news, time: %f\n", (float)(costTime(tI,tF)));
     sum=sum/vecNews.size();
-    cout<<"Promedio de tiempo por busqueda: "<<sum<<endl;
+    printf("Promedio de tiempo por busqueda: %.10f \n",(float)sum);
 }
 
 string MainWindow::clearAcent(const string& s){
@@ -168,7 +169,6 @@ void MainWindow::slot_btn_search(bool){
     ui->tableWidget->clear();
     ui->tableWidget->setColumnCount(4);
     ui->tableWidget->setRowCount(setResult.size());
-    ui->tableWidget->setItem(0,0,new QTableWidgetItem("joala"));
     int row=0;
     for(Result res : setResult){
         ui->tableWidget->setItem(row,0,new QTableWidgetItem(QString(vecNews[res.indnews].title.c_str())));
@@ -177,4 +177,5 @@ void MainWindow::slot_btn_search(bool){
         ui->tableWidget->setItem(row,3,new QTableWidgetItem(QString(vecNews[res.indnews].text.c_str())));
         ++row;
     }
+    ui->tableWidget->setHorizontalHeaderLabels(QStringList()<< "Título" << "Fecha" << "Match keywords" << "Texto");
 }
