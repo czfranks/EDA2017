@@ -15,9 +15,7 @@ Procedimiento:
 
 4.- Abrir el proyecto en QT Creatoor y compilar
 
-5.- FIN 
-
-6.- Informe : https://www.sharelatex.com/project/5a43c1dbab835d57b8534a56
+5.- Informe : https://www.sharelatex.com/project/5a43c1dbab835d57b8534a56
 
 
 NOTA: el archivo page.txt ya se genero y esta en el proyecto incluido por si acaso.
